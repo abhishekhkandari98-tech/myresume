@@ -67,17 +67,17 @@ function App() {
     {
       id: 1,
       title: "Ice and Fire",
-      image: "/ice-and-fire.jpg"
+      image: "ice-and-fire.jpg"
     },
     {
       id: 2,
       title: "Mirror of Dreams",
-      image: "/mirror-of-dreams.jpg"
+      image: "mirror-of-dreams.jpg"
     },
     {
       id: 3,
       title: "Melting Candle",
-      image: "/melting-candle.jpg"
+      image: "melting-candle.jpg"
     }
   ];
 
@@ -136,7 +136,7 @@ function App() {
             <div className="absolute inset-0 bg-gradient-to-tr from-purple-500 to-blue-500 rounded-[2.5rem] rotate-6 opacity-60 blur-xl animate-pulse"></div>
             <div className="absolute inset-0 bg-slate-900 rounded-[2.5rem] rotate-3 border border-white/20"></div>
             <img
-              src="/hero-profile.jpg"
+              src="hero-profile.jpg"
               alt="Abhishekh Kandari"
               className="relative w-full h-full object-cover object-[center_15%] scale-110 rounded-[2.2rem] shadow-2xl border-[3px] border-white/30 transform hover:scale-[1.12] transition-transform duration-500"
             />
@@ -189,6 +189,15 @@ function App() {
               Beyond the technical, I am a poet and storyteller. I believe that even in the age of AI,
               the human touch can impede the gap between reality and illusions. i write with emotions and knowledge of experiences.
             </p>
+            <a
+              href="https://abhishekhkandari98-tech.github.io/myresume/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors font-medium"
+            >
+              <ExternalLink size={16} />
+              View Portfolio
+            </a>
           </div>
         </div>
       </motion.section>
@@ -414,7 +423,7 @@ function App() {
             <div className="card !border-none !shadow-none h-full w-full rounded-xl flex flex-col items-center justify-center p-8 text-center relative z-10 transition-all">
               <div className="w-32 h-32 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 rounded-full flex items-center justify-center text-white mb-6 overflow-hidden border-4 border-[#0f1115] shadow-lg">
                 <img
-                  src="/instagram-profile.jpg"
+                  src="instagram-profile.jpg"
                   alt="@opaquewrites"
                   className="w-full h-full object-cover"
                 />
