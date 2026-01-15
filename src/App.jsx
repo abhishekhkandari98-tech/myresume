@@ -197,6 +197,15 @@ function App() {
               I specialize in refining AI-generated content to ensure factual accuracy and human flow.
               My background in Science allows me to handle technical and academic topics with precision.
             </p>
+            <a
+              href="https://abhishekhkandari98-tech.github.io/myresume/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium"
+            >
+              <ExternalLink size={16} />
+              View Portfolio
+            </a>
           </div>
           <div className="card relative overflow-hidden group hover:border-purple-500/50 transition-colors">
             <div className="absolute top-0 left-0 w-1 h-full bg-purple-500"></div>
