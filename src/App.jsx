@@ -61,6 +61,8 @@ const QuoteDropper = () => {
 function App() {
   const [showGallery, setShowGallery] = useState(false);
   const [selectedPoem, setSelectedPoem] = useState(null);
+  const [showArticles, setShowArticles] = useState(false);
+  const [selectedArticle, setSelectedArticle] = useState(null);
 
   // Poetry Collection - 3 featured poems
   const poems = [
@@ -78,6 +80,20 @@ function App() {
       id: 3,
       title: "Melting Candle",
       image: "melting-candle.jpg"
+    }
+  ];
+
+  // Article Collection - 2 featured articles
+  const articles = [
+    {
+      id: 1,
+      title: "Peace and Desire",
+      image: "peace-and-desire.jpg"
+    },
+    {
+      id: 2,
+      title: "Evident Peace",
+      image: "evident-peace.jpg"
     }
   ];
 
@@ -358,7 +374,12 @@ function App() {
           </motion.div>
 
           {/* Item 2 */}
-          <motion.div className="card relative overflow-hidden group cursor-pointer border-transparent hover:border-blue-500/50" whileHover={{ y: -5 }} {...fadeInUp}>
+          <motion.div
+            className="card relative overflow-hidden group cursor-pointer border-transparent hover:border-blue-500/50"
+            whileHover={{ y: -5 }}
+            onClick={() => setShowArticles(true)}
+            {...fadeInUp}
+          >
             <div className="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
             <div className="h-40 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg mb-6 flex items-center justify-center text-white shadow-lg shadow-blue-900/20">
               <FileText size={48} />
@@ -575,6 +596,77 @@ function App() {
             <img
               src={selectedPoem.image}
               alt={selectedPoem.title}
+              className="w-full h-auto rounded-xl"
+            />
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {/* Article Collection Modal */}
+      {showArticles && createPortal(
+        <div
+          onClick={() => setShowArticles(false)}
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            className="w-full max-w-4xl bg-slate-900/95 border border-blue-500/30 rounded-2xl p-8 relative"
+          >
+            <button
+              onClick={() => setShowArticles(false)}
+              className="absolute top-4 right-4 z-10 p-2 bg-white/5 rounded-full hover:bg-red-500/80 text-white transition-colors"
+            >
+              <X size={24} />
+            </button>
+
+            <div className="flex items-center gap-3 mb-8">
+              <FileText className="text-blue-400" size={32} />
+              <h2 className="text-3xl font-bold text-white">Article Collection</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {articles.map((article) => (
+                <div
+                  key={article.id}
+                  onClick={() => setSelectedArticle(article)}
+                  className="group relative cursor-pointer overflow-hidden rounded-xl border border-white/10 hover:border-blue-500/50 transition-all hover:scale-105"
+                >
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-[500px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                    <p className="text-white font-bold text-lg">{article.title}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {/* Full Article View Modal */}
+      {selectedArticle && createPortal(
+        <div
+          onClick={() => setSelectedArticle(null)}
+          className="fixed inset-0 bg-black/95 z-[10000] flex items-center justify-center p-4"
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            className="relative max-w-2xl max-h-[90vh] overflow-auto"
+          >
+            <button
+              onClick={() => setSelectedArticle(null)}
+              className="absolute top-4 right-4 z-10 p-2 bg-black/50 rounded-full hover:bg-red-500/80 text-white transition-colors"
+            >
+              <X size={24} />
+            </button>
+            <img
+              src={selectedArticle.image}
+              alt={selectedArticle.title}
               className="w-full h-auto rounded-xl"
             />
           </div>
