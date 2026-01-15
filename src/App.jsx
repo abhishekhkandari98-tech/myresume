@@ -23,11 +23,11 @@ const staggerContainer = {
 
 const QuoteDropper = () => {
   const quotes = [
-    "Never forgot the reason for your existence.",
+    "Never forget the reason for your existence.",
     "Dreams do end but for that, one has to cross the paths with heaven.",
-    "Whatever be the trials and tribulations one face, each strike brings depth of the reality.",
+    "Whatever be the trials and tribulations one face, each strike brings depth perseption of the reality.",
     "No matter how hard you try, how deep you fall, how long you live, smile always, you look good that way.",
-    "Stop chasing what run away from you, instead embrace the exceptional that hails for your success."
+    "Stop chasing what runs away from you, instead embrace the exceptional that hails for your success."
   ];
 
   const [index, setIndex] = useState(0);
